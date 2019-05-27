@@ -31,3 +31,23 @@
     transform: rotate(360deg);
   }
 }
+
+.state-container {
+    margin: auto;
+    width: 300px;
+    margin-top: 20px;
+}
+
+.state-container pre {
+    text-align: left;
+}
+
+.component-state pre {
+    background-color: aliceblue;
+    padding: 5px;
+}
+
+.component-props pre {
+    background-color: antiquewhite;
+    padding: 5px;
+}

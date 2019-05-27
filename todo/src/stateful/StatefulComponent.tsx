@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Stateless } from '../stateless/StatelessComponent';
+
 interface StatefulComponentProps {
     key1: string;
     key2: number;
@@ -19,11 +21,9 @@ export class StatefulComponent extends React.Component<StatefulComponentProps, S
 
         this.state = {
             ...props,
-            key3: Math.random()
+            key3: 0
         };
 
-        console.log("props", props);
-        console.log("state", this.state);
     }
 
     render() {
@@ -51,13 +51,22 @@ export class StatefulComponent extends React.Component<StatefulComponentProps, S
                         click me!
 		    </button>
                 </div>
-                <div>
-                    <span>state:</span>
-                    <pre>{JSON.stringify(this.state)}</pre>
+                <div className="state-container">
+                    <div className="component-state">
+                        <span>state:</span>
+                        <pre>{JSON.stringify(this.state, null, 2)}</pre>
+                    </div>
+                    <div className="component-props">
+                        <span>props:</span>
+                        <pre>{JSON.stringify(this.props, null, 2)}</pre>
+                    </div>
                 </div>
                 <div>
-                    <span>props:</span>
-                    <pre>{JSON.stringify(this.props)}</pre>
+                    <Stateless
+                        prop1=""
+                        prop2={this.state.key3}
+                        stateCallback={() => this.setState({ key3: this.state.key3 + 1 })}
+                    />
                 </div>
             </div>
         )
