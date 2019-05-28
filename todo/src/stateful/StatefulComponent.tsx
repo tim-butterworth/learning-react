@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Stateless } from '../stateless/StatelessComponent';
+import { coreService } from '../core/coreService';
 
 interface StatefulComponentProps {
     key1: string;
@@ -10,6 +11,7 @@ interface StatefulComponentState {
     key1: string;
     key2: number;
     key3: number;
+    random: number;
 }
 
 type InputEvent = React.ChangeEvent<HTMLInputElement>;
@@ -21,7 +23,8 @@ export class StatefulComponent extends React.Component<StatefulComponentProps, S
 
         this.state = {
             ...props,
-            key3: 0
+            key3: 0,
+            random: Math.random()
         };
 
     }
@@ -43,6 +46,7 @@ export class StatefulComponent extends React.Component<StatefulComponentProps, S
                     <input
                         type="text"
                         onChange={(event: InputEvent) => updateText(event)}
+                        value={this.state.key1}
                     >
                     </input>
                 </div>
@@ -67,6 +71,32 @@ export class StatefulComponent extends React.Component<StatefulComponentProps, S
                         prop2={this.state.key3}
                         stateCallback={() => this.setState({ key3: this.state.key3 + 1 })}
                     />
+                </div>
+                <div>
+                    <div>
+                        <div>
+                            <h1>
+                                Use a Service
+			    </h1>
+                        </div>
+                        <button
+                            onClick={
+                                (event) => {
+                                    event.preventDefault();
+                                    this.setState({ random: Math.random() });
+                                }
+                            }
+                        >
+                            Next Random
+			</button>
+                    </div>
+                    {coreService<JSX.Element>(
+                        this.state.random,
+                        {
+                            success: () => (<div>SUCCESS</div>),
+                            failure: () => (<div>TOO LOW</div>)
+                        }
+                    )}
                 </div>
             </div>
         )
