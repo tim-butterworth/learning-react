@@ -42,3 +42,22 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# Implement ToDo
+
+Using one stateful react component as the root of the application
+
+1. A list of todos are be displayed
+   - display the todo title
+   - display the todo description
+1. A user can add a todo
+   - a user can enter a title
+   - a user can enter a description
+   - a user can click add and the new todo will be displayed
+   *BONUS*
+   - the title can not be blank
+   - the description can not be blank
+1. A user can delete a todo by clicking on an x on the right side of the todo
+1. A user can reorder todos by clicking on up and down arrows on the todo
+  *BONUS*
+  - the up and down arrow should only be displayed when up and down moves are possible (no up arrow on the first todo, no down arrow on the last todo)
