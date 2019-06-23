@@ -1,0 +1,17 @@
+.todoform {
+    width: 40%;
+    margin: auto;
+    min-width: 200px;
+}
+
+.success {
+    border: solid green 2px;
+}
+
+.failure {
+    border: solid red 2px;
+}
+
+.normal {
+    border: solid white 2px;
+}
